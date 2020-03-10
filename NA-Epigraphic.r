@@ -124,7 +124,7 @@ dim(epEgs)
 
 library("multigraph")
 
-scp <- list(directed=FALSE, valued=TRUE, ecol=8, pos=0, cex=2.5, vcol="")
+scp <- list(directed=FALSE, valued=TRUE, ecol=8, pos=0, cex=2.5, vcol="yellow")
 
 multigraph(rm.isol(epEgs), layout="force", maxiter=70, scope=scp, main="Similarity of Egyptian epigraphs")
 
