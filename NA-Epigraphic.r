@@ -12,7 +12,6 @@ source_url("https://raw.githubusercontent.com/mplex/cedhar/master/code/simil.r")
 
 
 #### load the data
-#load(file="C:/R/AUArts/data-epi/epall.Rdata")
 load(file="epalln.Rdata")
 ####
 
@@ -35,7 +34,7 @@ epinet <- as.data.frame(do.call(rbind, epinetl))
 # TAKE A LOOK AT IT
 head(epinet, 8)
 #      ID type_of_monument language                                material country findspot_ancient not_after not_before
-#1 000001           tabula    Latin                Marmor, geädert / farbig   Italy       Cumae, bei      0130       0071
+#1 000001           tabula    Latin                Marmor, geÃ¤dert / farbig   Italy       Cumae, bei      0130       0071
 #2 000002           tabula    Latin       marble: rocks - metamorphic rocks   Italy             Roma      0200       0051
 #3 000003      statue base    Latin       marble: rocks - metamorphic rocks   Spain             NULL      0170       0131
 #4 000004            altar    Latin    limestone: rocks - clastic sediments   Spain    Ipolcobulcula      0200       0151
@@ -55,7 +54,7 @@ colnames(epinet2) <- names(epinetl[[1]])
 # TAKE A LOOK AT IT again
 head(epinet2, 8)
 #      ID type_of_monument language                                material country findspot_ancient not_after not_before
-#1 000001           tabula    Latin                Marmor, geädert / farbig   Italy       Cumae, bei      0130       0071
+#1 000001           tabula    Latin                Marmor, geÃ¤dert / farbig   Italy       Cumae, bei      0130       0071
 #2 000002           tabula    Latin       marble: rocks - metamorphic rocks   Italy             Roma      0200       0051
 #3 000003      statue base    Latin       marble: rocks - metamorphic rocks   Spain             NULL      0170       0131
 #4 000004            altar    Latin    limestone: rocks - clastic sediments   Spain    Ipolcobulcula      0200       0151
