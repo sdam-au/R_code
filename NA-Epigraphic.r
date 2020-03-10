@@ -128,6 +128,3 @@ scp <- list(directed=FALSE, valued=TRUE, ecol=8, pos=0, cex=2.5, vcol="")
 
 multigraph(rm.isol(epEgs), layout="force", maxiter=70, scope=scp, main="Similarity of Egyptian epigraphs")
 
-pdf("C:/R/AUArts/Epigraphic/epEgs-RANDOM321.pdf")
-multigraph(rm.isol(epEgs), layout="force", seed=321, maxiter=3, scope=scp, main="Similarity of Egyptian epigraphs")
-dev.off()
