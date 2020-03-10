@@ -7,21 +7,24 @@
 ##
 library("devtools")
 #source_url("https://raw.githubusercontent.com/mplex/cedhar/master/code/get.edh.r")
+# magic code that detects similarity in column variables among observations
 source_url("https://raw.githubusercontent.com/mplex/cedhar/master/code/simil.r")
 ###
 
 
 #### load the data
-load(file="epalln.Rdata")
+load(file="data/epalln.Rdata")
 ####
 
-
-
+ls()
+head(epalln)
 # CREATE EPIGRAPHIC NETWORK DATA LIST WITH VARIABLES MEASURES OF 
 # SIMILARITY OF ARTEFACT ASSEMBLAGES AND GEOGRAPHIC PROXIMITY (E.G.
 
+# with this function you select those artefact attributes you are interested in 
+#comparing and create a dataframe \netl\ from them 
 epinetl <- lapply(epalln, function (x) x[c("ID", "type_of_monument", "language", "material", 
-                  "country", "findspot_ancient", "not_after", "not_before")] )
+                  "country", "findspot_ancient", "type_of_inscription", "not_after", "not_before")] )
 
 
 
@@ -43,7 +46,7 @@ head(epinet, 8)
 #7 000007           tabula    Latin travertine: rocks - chemische Sedimente   Italy             Roma     -0051      -0100
 #8 000008           tabula    Latin       marble: rocks - metamorphic rocks   Italy            Roma?      0200       0101
 
-
+str(epinet$type_of_inscription)
 
 # REMOVE QUESTION MARKS
 epinet2 <- as.data.frame(do.call(rbind, lapply(epinetl, function (x)  as.list(gsub('\\?', '', x)) )) )
@@ -84,8 +87,11 @@ unique(unlist(epinet2$country))
 #[49] "Sweden"                 "Denmark"                "Moldova"                "Saudi Arabia"          
 #[53] "Uzbekistan"             "Liechtenstein"          "Georgia"
 
+# INSCRIPTION TYPES
+unique(unlist(epinet2$type_of_inscription))
 
-
+# FREQUENCY
+sort(table(unlist(epinet2$type_of_inscription)))
 
 ## e.g. EPIGRAPHIC MATERIAL IN "GREEK-LATIN" FROM EGYPT
 
@@ -110,21 +116,31 @@ subset(subset(epinet2, country=="Egypt"), language=="Greek-Latin")
 ## CASE: 'type_of_monument', 'material', AND 'findspot_ancient'
 
 epEgs <- simil(subset(epinet2, country=="Egypt"), c(2,4,6))
-
+epEgs267 <- simil(subset(epinet2, country=="Egypt"), c(2,6,7))
+epEgs2 <- simil(subset(epinet2, country=="Egypt"), c(2))
+epEgs6 <- simil(subset(epinet2, country=="Egypt"), c(6))
+epEgs7 <- simil(subset(epinet2, country=="Egypt"), c(7))
 
 ## HOW MANY INSCRIPTIONS?
 
 dim(epEgs)
 #[1] 170 170
 
+dim(epEgs267)
 
 
+## CALCULATE FREQUENCY OF DIFFERENT KINDS OF INSCRIPTIONS
+data.frame(sort(table(unlist(epinet2$type_of_inscription)), 
+                  decreasing = TRUE))
 
 ## PLOT GRAPH OF THESE SIMILARITIES WITH CUSTOMIZED LAYOUT AND NO ISOLATES
 
+install.packages("multigraph")
 library("multigraph")
 
-scp <- list(directed=FALSE, valued=TRUE, ecol=8, pos=0, cex=2.5, vcol="")
+scp <- list(directed=FALSE, valued=TRUE, ecol=8, pos=0, cex=2.5, vcol="red")
 
-multigraph(rm.isol(epEgs), layout="force", maxiter=70, scope=scp, main="Similarity of Egyptian epigraphs")
+multigraph(rm.isol(epEgs7), layout="force", maxiter=14, scope=scp,
+           main="Similarity of Egyptian epigraphs by inscription type", values = TRUE)
 
+# Can we color the nodes according to inscription type?
