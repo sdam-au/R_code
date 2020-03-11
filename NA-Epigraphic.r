@@ -157,5 +157,32 @@ multigraph(epEGscmp4, layout="force", maxiter=50, seed=1, scope=scp, main="Multi
 
 # how can we tell the category of each component? I was manually searching for the numbers and comparing what it might be, but I am sure ther eis a better way
 
-# Can we color the nodes according to inscription type?
+
+## CAN WE COLOR THE NODES ACCORDING TO INSCRIPTION TYPE?
+
+# different colors in nodes is possible if there is a clustering information and a vector of colors to assign
+
+# e.g. let's look at the 4th component of the Egyptian inscriptions similarities
+
+epinet2[as.numeric(epEGscmp$com[[4]]), ]
+
+
+# where the 7th column corresponds to 'type_of_inscription' with 3 categories where one is NULL
+
+epinet2[as.numeric(epEGscmp$com[[4]]), 7]
+
+
+# assign this clustering information as a vector to object 'clu7'
+
+clu7 <- unlist(epinet2[as.numeric(epEGscmp$com[[4]]), 7])
+
+
+# to plot we create new scopes
+
+scp2 <- list(directed=FALSE, valued=TRUE, ecol=8, pos=0, cex=2.5, vcol=c("orange","cyan","green"), clu=clu7)
+scpm <- list(main="Graph of epigraphic similarities found in an Egyptian component by type of inscription", cex.main=.9)
+
+
+multigraph(epEGscmp4, layout="force", seed=1, scope=c(scp2,scpm) )
+
 
