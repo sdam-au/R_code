@@ -8,10 +8,10 @@ library(sdam)
 library(rjson)
 library(tidyverse)
 library(getPass)
-# Input your sciencedata.dk
+# Input your sciencedata.dk username - type directly into the RStudio console
 user <- readline("your sciencedata username: ")
 
-# Make the request (you will be asked for password)
+# Make the request (you will be asked for password in a new pop-up window)
 resp = request("EDH_utf8.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=c(user, getPass("your sciencedata password: ")))
 # Make a list from the request
 list_json <- fromJSON(resp)
