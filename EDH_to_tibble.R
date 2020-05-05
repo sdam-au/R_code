@@ -8,6 +8,7 @@ library(sdam)
 library(rjson)
 library(tidyverse)
 library(getPass)
+
 # Input your sciencedata.dk username - type directly into the RStudio console
 user <- readline("your sciencedata username: ")
 
@@ -18,3 +19,10 @@ list_json <- fromJSON(resp)
 # 
 EDH_tibble = as_tibble(list_json)
 head(EDH_tibble)
+
+
+Thracia <- EDH_tibble %>% 
+  filter(province_label=="Thracia")
+Thracia
+
+save(Thracia, file = "data/Thracia.RData")
