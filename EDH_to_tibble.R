@@ -14,22 +14,27 @@ user <- readline("your sciencedata username: ")
 
 # Make the request (you will be asked for password in a new pop-up window)
 resp = request("EDH_utf8.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=c(user, getPass("your sciencedata password: ")))
+
 # Make a list from the request
 list_json <- fromJSON(resp)
+
 # transform to tibble
 EDH_tibble = as_tibble(list_json)
 head(EDH_tibble)
 
-#subset the tibble
+# subset the tibble only to inscriptions found in Thracia
 Thracia <- EDH_tibble %>% 
   filter(province_label=="Thracia"| province_label=="Thracia?")
 Thracia
 
-#transform the subset to json
+# transform the subset to json and save it
 Thracia_json <- toJSON(Thracia)
+write(Thracia_json, file="Thracia_petra.json")
 
-# save to Sciencedata
-request("Thracia_json", path="/sharingout/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="PUT", cred=c(user, getPass("your sciencedata password: ")),
-        subdomain = "silo4") 
+# save to Sciencedata into the sdam shared drive 
+request("Thracia_petra.json", path="/sharingout/648597@au.dk/SDAM_root/SDAM_data/EDH/", 
+        method="PUT", cred=c(user, getPass("your sciencedata password: "))) 
 
+# if you got Status 201 response in the console, the file should be now on Sciencedata.dk in the folder specified. 
+# If you got Status 401 or 403, there is problem with your authentication to Sciencedata.dk. You may check a) your password, b) rerun the user <- readline("your sciencedata username: ")
 
