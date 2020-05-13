@@ -29,10 +29,10 @@ Thracia
 
 # transform the subset to json and save it
 Thracia_json <- toJSON(Thracia)
-write(Thracia_json, file="Thracia_petra.json")
+write(Thracia_json, file="data/EDH_Thracia.json")
 
 # save to Sciencedata into the sdam shared drive 
-request("Thracia_petra.json", path="/sharingout/648597@au.dk/SDAM_root/SDAM_data/EDH/", 
+request("data/EDH_Thracia.json", path="/sharingout/648597@au.dk/SDAM_root/SDAM_data/EDH/", 
         method="PUT", cred=c(user, getPass("your sciencedata password: "))) 
 
 # if you got Status 201 response in the console, the file should be now on Sciencedata.dk in the folder specified. 
