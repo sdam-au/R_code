@@ -36,5 +36,8 @@ request("data/EDH_Thracia.json", path="/sharingout/648597@au.dk/SDAM_root/SDAM_d
         method="PUT", cred=c(user, getPass("your sciencedata password: "))) 
 
 # if you got Status 201 response in the console, the file should be now on Sciencedata.dk in the folder specified. 
-# If you got Status 401 or 403, there is problem with your authentication to Sciencedata.dk. You may check a) your password, b) rerun the user <- readline("your sciencedata username: ")
+# If you got Status 401 or 403, there is problem with your authentication to Sciencedata.dk. You may check 
+# a) your password, 
+# b) rerun the user <- readline("your sciencedata username: ")
+# c) try with an array for credentials such as cred <- c("USERNAME", "PASSWORD")
 
