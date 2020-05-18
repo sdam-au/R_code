@@ -33,3 +33,5 @@ request("newfile.extension", path="/sharingout/648597@au.dk/SDAM_root/SDAM_data/
 # b) rerun the user <- readline("your sciencedata username: ")
 # c) try with an array for credentials such as cred <- c("USERNAME", "PASSWORD")
 
+# remove the file from local computer
+remove.file("newfile.extension")
