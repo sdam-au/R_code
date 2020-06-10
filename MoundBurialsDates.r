@@ -86,7 +86,7 @@ head(bmd)
 bmdm <- apply((bmd), 1, mean)
 
 # histogram with the probability densities
-hist(bmdm, breaks=50, prob=TRUE, main="Burial mounds histogram with mean interval data") #, xlab="years")
+hist(bmdm, breaks=50, prob=TRUE, main="Burial mounds histogram with mean interval data")
 # add a normal distributed curve and smoothing line
 curve(dnorm(x, mean=mean(bmdm), sd=sd(bmdm)), add=TRUE, col="darkblue", lwd=2) 
 lines(density(bmdm, from=-3500), col="red", lwd=2)
@@ -95,7 +95,7 @@ lines(density(bmdm, from=-3500), col="red", lwd=2)
 # which distribution fits best the data (with a plot)
 require("propagate")
 
-fitdistr(bmdm)
+propagate::fitDistr(bmdm)
 #
 #...
 #
