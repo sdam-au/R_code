@@ -1,5 +1,5 @@
 # R-code
-Random R excercises, mostly referring to Networks Analysis
+Random R excercises, some referring to Networks Analysis, but also other R topics concerning data types, etc.
 
 * NA-Epigraphic.r - original Antonio's [script for plotting the networks](https://mplex.github.io/cedhar/EpigraphicNetwork.html) with multigraph
 
