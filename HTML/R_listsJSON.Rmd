@@ -1,0 +1,190 @@
+---
+title: "R list object: From JSON files"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+author: "by jaro"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    code_folding: none
+    keep_md: true
+  pdf_document: default
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+library(sdam)
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Case: EDH
+
+Importing `JSON` files into R typically implies creating a list object.
+
+
+<div style="margin-bottom:60px;"> </div>
+
+#### Two approaches: `jsonlite` and `rjson`
+```{r}
+require(jsonlite)
+edh <- jsonlite::fromJSON(file="c:/R/AUArts/lists/Petra/sample.json")
+```
+```{r}
+require(rjson)
+Edh <- rjson::fromJSON(file="c:/R/AUArts/lists/Petra/sample.json")
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+We look at their class object and structure
+
+
+```{r}
+is(edh)
+```
+
+```{r eval=FALSE}
+str(edh)
+```
+
+```
+#'data.frame':   6 obs. of  55 variables:
+# $ diplomatic_text                 :List of 6
+#  ..$ : chr "D M / NONIAE P F OPTATAE / ET C IVLIO ARTEMONI / PARENTIBVS / LIBERTIS LIBERTABVSQVE / POSTERISQVE EORVM / C IV"| __truncated__
+#  ..$ : chr "C SEXTIVS PARIS / QVI VIXIT / ANNIS LXX"
+#  ..$ : chr "[ ]VMMIO [ ] / [ ]ISENNA[ ] / [ ] XV[ ] / [ ] / ["
+#  ..$ : chr "[ ]AVS[ ]LLA / M PORCI NIGRI SER / DOMINAE VENERI / ARAM POSVIT"
+#  ..$ : chr "[ ] L SVCCESSVS / [ ] L L IRENAEVS / [ ] C L TYCHES / [ ]VNT / [ ]RENTI F"
+#  ..$ : chr "D M S / / MEMMIA AVCTIN[ ] / AN LXX PIA IN SVIS / H S E S T TE[ ] L"
+# $ literature                      :List of 6
+#  ..$ : chr "AE 1983, 0192.; M. Annecchino, Puteoli 4/5, 1980/81, 286-287, Nr. 17; fig. 17. (C) - AE 1983."
+```
+
+
+
+<div style="margin-bottom:60px;"> </div>
+
+```{r}
+is(Edh)
+```
+
+```{r eval=FALSE}
+str(Edh)
+```
+
+```
+#List of 6
+# $ :List of 55
+#  ..$ diplomatic_text                 : chr "D M / NONIAE P F OPTATAE / ET C IVLIO ARTEMONI / PARENTIBVS / LIBERTIS LIBERTABVSQVE / POSTERISQVE EORVM / C IV"| __truncated__
+#  ..$ literature                      : chr "AE 1983, 0192.; M. Annecchino, Puteoli 4/5, 1980/81, 286-287, Nr. 17; fig. 17. (C) - AE 1983."
+#  ..$ trismegistos_uri                : chr "https://www.trismegistos.org/text/251193"
+#  ..$ id                              : chr "HD000001"
+#
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+### Selection of relevant attributes
+
+This code is from Petra's `Dealing_with_lists_R_script.R`
+```
+date_info <- EDH %>% 
+  select(id, not_before, not_after, commentary, origdate_text, year_of_find) 
+date_info 
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+#### Function `edhw()`
+
+With the last version from `edhw()` function from `sdam` (version 0.2.4) you can retrieve that selection from a list object generated either by `rjson` or `jsonlite`.
+
+<div style="margin-bottom:60px;"> </div>
+
+##### Output from `jsonlite`
+```{r}
+require(sdam)
+edhw(x=edh, vars=c('id', 'not_before', 'not_after', 'commentary', 'origdate_text', 'year_of_find'))
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+#### Data frame transformation
+Argument `as` in `edhw()` allows transforming the list into a data frame where all missing or empty information is treated as *not available* `<NA>`.
+
+```{r}
+edhw(x=edh, vars=c('id', 'not_before', 'not_after', 'commentary', 'origdate_text', 'year_of_find'), as="df")
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+##### Output from `rjson`
+
+And for `Edh` that is a `vector` `list`, the transformation works as well.
+
+```{r eval=FALSE}
+edhw(x=Edh, vars=c('id', 'not_before', 'not_after', 'commentary', 'origdate_text', 'year_of_find'))
+edhw(x=Edh, vars=c('id', 'not_before', 'not_after', 'commentary', 'origdate_text', 'year_of_find'), as="df")
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+##### TODO
+
+Next steps are:
+
+* Allow selecting all variables/attributes from the list object with `edhw()`
+* Incorporate `"People"` in the selection.
+
+
+
+<div style="margin-bottom:160px;"> </div>
+
+
+
+##### SQL for selection in data frames
+
+Given these two objects:
+
+```{r eval=FALSE}
+df1 = data.frame(CustomerId = c(1:6), Product = c(rep("Toaster", 3), rep("Radio", 3)))
+df2 = data.frame(CustomerId = c(2, 4, 6), State = c(rep("Alabama", 2), rep("Ohio", 1)))
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+*Inner join* and *left join* (substitute *'right'* for right join).
+
+```{r eval=FALSE}
+library(sqldf)
+
+df3 <- sqldf("SELECT CustomerId, Product, State 
+              FROM df1
+              JOIN df2 USING(CustomerID)")
+
+df4 <- sqldf("SELECT CustomerId, Product, State 
+              FROM df1
+              LEFT JOIN df2 USING(CustomerID)")
+```
+
+<div style="font-size:10pt;">https://stackoverflow.com/questions/1299871/</div>
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
+##### Even better
+
+```{r eval=FALSE}
+?merge
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+

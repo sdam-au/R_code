@@ -1,0 +1,161 @@
+---
+title: "R list object: Basics"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+author: "by jaro"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    code_folding: none
+    keep_md: true
+  pdf_document: default
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+library(sdam)
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Lists in R
+
+Two types of list objects in R
+
+* *lists*  as a datatype from `list()`
+* *"dotted" lists* as a datatype from `pairlist()` (not commonly used in R computations)
+
+<div style="margin-bottom:60px;"> </div>
+
+More info on these by typing `?list` on the `R` console.
+
+In the manual, we can see that an object `list` is a generalization of a `vector` object.
+
+<div style="margin-bottom:60px;"> </div>
+
+#### Example of dotted list
+```{r}
+formals(vector)
+```
+
+Is the object from a Class?
+```{r}
+is(formals(vector))
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
+
+### Creating Lists
+
+#### empty list with three *components*
+```{r}
+L0 <- vector("list", length=3)
+L0
+```
+
+```{r}
+is(L0)
+```
+
+We can populate this list component by component
+
+```{r}
+L0[[1]] <- sample(1:5, 20, replace=TRUE)
+L0[[2]] <- rep(letters[1:5], 4)
+L0[[3]] <- rpois(20, 1)
+L0
+```
+
+##### Naming
+```{r}
+names(L0) <- c("Item1","Item2","Item3")
+L0
+```
+
+`names` for assigning labels to each component, and these names are given in the object after 
+the meta-character `$`. 
+
+
+
+<div style="margin-bottom:60px;"> </div>
+
+##### Creating a list with `list()`
+```{r}
+L1 <- list(x = sample(1:5, 20, replace=TRUE),
+           y = rep(letters[1:5], 4), z = rpois(20, 1))
+L1
+```
+
+Object Class?
+```{r}
+is(L1)
+```
+
+##### Length?
+```{r}
+length(L1)
+```
+
+
+
+##### Ways for accessing the first component
+```{r}
+L1[["x"]]
+L1$x
+L1[[1]]
+```
+
+
+##### A sublist with only the first component
+```{r}
+L1[1]
+```
+
+
+##### Renaming
+```{r}
+names(L1) <- c("Item1","Item2","Item3")
+```
+```{r}
+L1
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+##### Indexing
+```{r}
+L1$Item1[L1$Item1>2]
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+#### Joining lists with concatenation
+```{r}
+L2 <- list(x=c(1,5,6,7), y=c("apple","orange","melon","grapes"))
+c(L1,L2)
+```
+
+##### Joining two lists by appending
+```{r}
+append(L1,L2,after=2)
+```
+
+##### Ways for adding elements into a list object
+```{r}
+L1$Item4 <- c("apple","orange","melon","grapes")
+L1[[4]] <- c("apple","orange","melon","grapes"); names(L1)[4] <- c("Item4")
+L1[["Item4"]] <- c("apple","orange","melon","grapes")
+```
+```{r}
+L1
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
