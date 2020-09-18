@@ -8,11 +8,12 @@ output:
     theme: cerulean
     toc: yes
     toc_depth: 3
+    
 ---
 
 
 ```{r setup, echo=TRUE, message=FALSE}
-knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+knitr::opts_chunk$set(echo = FALSE, error=TRUE)
 devtools::install_github("sdam-au/sdam")
 
 library(sdam)
