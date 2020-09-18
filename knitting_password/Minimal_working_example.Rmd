@@ -41,7 +41,7 @@ mycred_secret<- readLines("~/mysecret.txt")
 
 ## 2. Make the request from Sciencedata.dk
 ```{r, echo = TRUE }
-resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=mycred_secret)
+resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=cred=c(mycred_secret[1], mycred_secret[2]))
 
 # remove any traces of the secret password from the document
 remove(mysecret)
