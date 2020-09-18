@@ -1,0 +1,38 @@
+---
+title: "Knitting with passwords, Antonio's solution"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r setup, echo=TRUE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+devtools::install_github("sdam-au/sdam")
+
+library(sdam)
+library(jsonlite)
+library(getPass)
+library(tibble)
+```
+
+# Loading data
+
+## 1. Input your credentials to Sciencedata
+```{r, echo = TRUE }
+mycred <- c("648560@au.dk", "Iamnotgivingyoumypassword")
+```
+
+## 2. Make the request 
+```{r, echo = TRUE }
+resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=mycred)
+```
+
+##v3. Make a list from the request and display the first six records (head)
+```{r}
+EDH <- tibble::as_tibble(jsonlite::fromJSON(resp))
+head(EDH)
+```
+# Outcome
+Not ideal, the report is knitted, but the password is stored in the document and can be committed to GitHub.
+

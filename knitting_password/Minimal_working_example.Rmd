@@ -1,0 +1,60 @@
+---
+title: "Knitting secure reports with passwords"
+subtitle: "Minimal working example: Sciencedata.sk"
+author: "Petra Hermankova"
+date: 18/09/2020
+output:
+  html_document:
+    theme: cerulean
+    toc: yes
+    toc_depth: 3
+---
+
+
+```{r setup, echo=TRUE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+devtools::install_github("sdam-au/sdam")
+
+library(sdam)
+library(jsonlite)
+library(getPass)
+library(tibble)
+```
+
+# Loading data
+
+## 1a. Create your credentials and save it in external txt file
+Ideally do it once in a different script and save it to one stable place on your computer that you can easily navigate to (~ or Home). Copy-paste the following chunk into a separate script and run it with your own credentials. You will create a token and save it on your computer. Later on you will be only calling to this token, without having to expose your password or type it in. See an empty example below: 
+
+```{r, echo = TRUE}
+mysecret <- c("123456@au.dk", "password")
+writeLines(mysecret, "~/mysecret.txt")
+```
+
+Return to the original script and paste the following chunks. Remember to type in the correct path to your `mysecret.txt` file, otherwise it will not work.
+
+## 1b. Load the credentials from external csv
+```{r}
+mycred_secret<- readLines("~/mysecret.txt")
+```
+
+## 2. Make the request from Sciencedata.dk
+```{r, echo = TRUE }
+resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=mycred_secret)
+
+# remove any traces of the secret password from the document
+remove(mysecret)
+remove(mycred_secret)
+```
+
+## 3. Make a list from the request and display the first six records (head)
+If you can see the first six record, you have been successful. If not check all the paths to the secret and the data are correct.
+
+```{r}
+EDH <- tibble::as_tibble(jsonlite::fromJSON(resp))
+head(EDH)
+```
+
+# Outcome
+
+Using remote secret password, I can print the report, submit it to GitHub and not expose my password. Works 100 %. I can reuse the secret to any scripts connecting to Sciencedata.dk.

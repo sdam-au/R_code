@@ -1,0 +1,41 @@
+---
+title: "Knitting with passwords, Vojtech's solution"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r setup, echo=TRUE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+devtools::install_github("sdam-au/sdam")
+
+library(sdam)
+library(jsonlite)
+library(getPass)
+library(tibble)
+```
+
+# Loading data
+
+## 1. Input your sciencedata.dk username - type directly into the RStudio console
+```{r, echo = FALSE }
+user <- readline("your sciencedata username: ")
+```
+
+## 2. Make the request (you will be asked for password in a new pop-up window)
+
+```{r, echo = FALSE }
+resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=c(user, getPass("your sciencedata password: ")))
+```
+
+## 3. Make a list from the request and display the first six records (head)
+```{r}
+EDH <- tibble::as_tibble(jsonlite::fromJSON(resp))
+head(EDH)
+```
+
+# Outcome
+
+The script works, but it does not knit the report, i.e. works only on 50 %.
+

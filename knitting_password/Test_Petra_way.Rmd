@@ -1,0 +1,44 @@
+---
+title: "Knitting with passwords, Petra's solution"
+subtitle: "Minimal working example"
+output:
+  html_document:
+    theme: cerulean
+    toc: yes
+    toc_depth: 3
+---
+
+
+```{r setup, echo=TRUE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+devtools::install_github("sdam-au/sdam")
+
+library(sdam)
+library(jsonlite)
+library(getPass)
+library(tibble)
+```
+
+# Loading data
+
+## 1. Load the credentials from external csv
+```{r}
+mycred_secret<- readLines("~/mysecret.txt")
+```
+
+## 2. Make the request 
+```{r, echo = TRUE }
+resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=mycred_secret)
+
+# remove any traces of the secret password from the document
+remove(mycred_secret)
+```
+
+## 3. Make a list from the request and display the first six records (head)
+```{r}
+EDH <- tibble::as_tibble(jsonlite::fromJSON(resp))
+head(EDH)
+```
+# Outcome
+
+Using remote secret password, I can print the report, submit it to GitHub and not expose my password. Works 100 %.
