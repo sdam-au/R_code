@@ -1,5 +1,5 @@
 ---
-title: "Knitting with passwords, Antonio's solution"
+title: "Knitting with passwords, Antonio's solutions"
 output:
   html_document:
     df_print: paged
@@ -16,9 +16,9 @@ library(getPass)
 library(tibble)
 ```
 
-# Loading data
+# OPTION 1: Loading data with credentials
 
-## 1. Input your credentials to Sciencedata
+## 1. Input your credentials to Sciencedata.dk
 ```{r, echo = TRUE }
 mycred <- c("648560@au.dk", "Iamnotgivingyoumypassword")
 ```
@@ -28,11 +28,38 @@ mycred <- c("648560@au.dk", "Iamnotgivingyoumypassword")
 resp = request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET", cred=mycred)
 ```
 
-##v3. Make a list from the request and display the first six records (head)
+## 3. Make a list from the request and display the first six records (head)
 ```{r}
-EDH <- tibble::as_tibble(jsonlite::fromJSON(resp))
-head(EDH)
+edh <- tibble::as_tibble(jsonlite::fromJSON(resp))
+head(edh)
 ```
 # Outcome
-Not ideal, the report is knitted, but the password is stored in the document and can be committed to GitHub.
+If you do not want the password to be stored in the document when the report is knitted and can be committed to GitHub, this option is not ideal.
+
+
+# OPTION 2: Loading data with widget prompt window
+
+## 1. To put credentials when login into Sciencedata.dk
+```{r, echo = TRUE }
+require("tcltk")
+```
+
+## 2. Make the request 
+```{r, echo = TRUE }
+request("EDH_sample.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/", method="GET")
+```
+With this option, a widget prompt window pops-up to enter login details.
+
+
+## 3. Make a list from the request and display the first six records (head)
+```{r}
+edh <- tibble::as_tibble(jsonlite::fromJSON(resp))
+head(edh)
+```
+
+# Outcome
+This is an option if you do not want the password to be stored in the document when the report is knitted and can be committed to GitHub.
+
+
+
 
