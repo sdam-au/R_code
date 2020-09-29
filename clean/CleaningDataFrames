@@ -80,7 +80,7 @@ str(mnd2017df)
 ## clean() FUNCTION 
 ## load from github repository
 library("devtools")
-source_url("https://raw.githubusercontent.com/sdam-au/R_code/master/clean.r")
+source_url("https://raw.githubusercontent.com/sdam-au/R_code/master/clean/clean.r")
 #
 
 
