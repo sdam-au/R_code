@@ -3,14 +3,13 @@
 ## FUNCTION clean() coerce missing data into NA and <NA>
 ## (CC BY-SA 4.0) Antonio Rivero Ostoic, jaro@cas.au.dk 
 ##
-## version 0.2 (24-09-2020)
+## version 0.3 (29-09-2020)
 ##
 ## Parameters
 ## x  a data frame 
 
 
-clean <-
-function (x) 
+clean <-function (x) 
 {
     ifelse(any(class(x) %in% c("tbl_df", "tbl")) == TRUE, x <- as.data.frame(x), 
         NA)
