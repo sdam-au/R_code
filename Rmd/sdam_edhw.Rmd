@@ -14,7 +14,7 @@ output:
 ```{r setup, echo=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo=TRUE,error=TRUE)
 library(sdam)
-source("C:/R/AUArts/sdam-pub/edhw.r")
+require(rjson)
 ```
 
 <div style="margin-bottom:60px;"> </div>
