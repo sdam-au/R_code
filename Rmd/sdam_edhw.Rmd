@@ -115,6 +115,7 @@ edhw(x=rjson::fromJSON(edhs), vars=c("type_of_inscription","people"), as="df")
 #Error: C stack usage  467226454 is too close to the limit
 ```
 
+(if you want to save time use `edhw(x=rjson::fromJSON(edhs), vars=c("type_of_inscription","people"), as="df", limit=4)`)
 
 <div style="margin-bottom:60px;"> </div>
 
