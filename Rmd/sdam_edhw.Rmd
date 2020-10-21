@@ -110,8 +110,8 @@ From the SDAM weekly meeting on (ADD DATE) there are questions that can be addre
 <div style="margin-bottom:60px;"> </div>
 
 ```{r petra, echo=TRUE, eval=FALSE}
-edhs = request("EDH_attrs_cleaned_2020-09-30.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/public", method="GET", cred=cred)
-edhw(x=edhs, vars=c("type_of_inscription","people"), as="df")
+edhs = request("EDH_attrs_cleaned_2020-09-30.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/public", method="GET")
+edhw(x=rjson::fromJSON(edhs), vars=c("type_of_inscription","people"), as="df")
 #Error: C stack usage  467226454 is too close to the limit
 ```
 
