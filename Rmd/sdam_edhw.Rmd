@@ -1,0 +1,174 @@
+---
+title: "Variable extraction from EDH with function edhw()"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+author: "by jaro"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    code_folding: none
+    keep_md: true
+  pdf_document: default
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo=TRUE,error=TRUE)
+library(sdam)
+source("C:/R/AUArts/sdam-pub/edhw.r")
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Background (TODO)
+
+`edhw()` is a wrapper function for manipulation of the EDH dataset, 
+which was retrieved from the Epigraphic Database Heidelberg open 
+data repository through its API. 
+
+
+TODO.
+
+<div style="margin-bottom:120px;"> </div>
+
+
+### Choosing variables
+
+```{r edhs, size="scriptsize", echo=-3}
+# choose variables of interest in EDH and record it as a data frame
+edhs <- edhw(vars=c("type_of_monument", "language", "material", "country", "findspot_ancient",
+               "not_after", "not_before"), as="df", limit=10)
+edhs
+```
+We use a regular expression to remove question marks (not optimal for missing data)
+
+```{r edhsreg, echo=-2}
+edhs <- as.data.frame(sapply(edhs, function (x)  as.list(gsub('\\?', '', x)) ))
+edhs
+```
+
+To look at variables like *countries* we need to unlist.
+
+```{r}
+unique(unlist(edhs$country))
+```
+
+
+<div style="margin-bottom:120px;"> </div>
+
+
+### People
+Since version 0.2.4 of `sdam` is possible to choose *people* from the `EDH` dataset with function 
+`edhw()`. 
+In the following example, we extract `"peolple"` from the first 10 records of `EDH` as a data frame. 
+
+
+```{r edhp, echo=-2}
+edhp <- edhw(vars="people", as="df", limit=10)
+edhp
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+Or in combination of other variables in `EDH`.
+
+```{r edhsp, echo=-2}
+edhsp <- edhw(vars=c("people","type_of_monument"), as="df", limit=10)
+edhsp
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+Since *people* is another list inside `EDH`, each record can be placed in a single row with the 
+`bycols` argument. 
+
+```{r edhpc, echo=-2}
+edhp <- edhw(vars="people", as="df", limit=10, bycols=TRUE)
+edhp
+```
+
+
+
+
+
+
+<div style="margin-bottom:120px;"> </div>
+
+
+#### TODO: Petra's questions 
+
+From the SDAM weekly meeting on (ADD DATE) there are questions that can be addressed with `edhw()`: 
+
+* gender
+* age
+* status
+* relationships
+
+
+<div style="margin-bottom:60px;"> </div>
+
+```{r petra, echo=TRUE, eval=FALSE}
+edhs = request("EDH_attrs_cleaned_2020-09-30.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/public", method="GET", cred=cred)
+edhw(x=edhs, vars=c("type_of_inscription","people"), as="df")
+#Error: C stack usage  467226454 is too close to the limit
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
+#### EDH Open Data Repository
+
+<div style="margin-bottom:60px;"> </div>
+
+##### Gender
+
+Extract records directly from the open data repository through its API.
+
+```{r thrp, echo=TRUE, eval=TRUE}
+# example: people inscriptions in Thracia province
+thrp <- edhw(x=get.edh(search="inscriptions", province="Thr"), vars="people", as="df")
+```
+
+```{r dim, echo=TRUE, eval=TRUE}
+# dimensions of the data frame
+dim(thrdf)
+```
+
+```{r table, echo=TRUE, eval=TRUE}
+# contingency table with frequencies
+table(thrp$gender)
+```
+
+and plot the histogram.
+
+```{r barplot, echo=TRUE, eval=TRUE}
+barplot(table(thrp$gender))
+```
+
+<div style="margin-bottom:30px;"> </div>
+
+
+And for the whole `EDH` dataset the command would be
+
+```{r EDH, echo=TRUE, eval=TRUE}
+table(edhw(vars="people", as="df")$gender)
+```
+
+Etc.
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
