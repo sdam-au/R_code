@@ -1,0 +1,161 @@
+---
+title: "Females per Roman province per century"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+author: "by jaro"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    code_folding: none
+    keep_md: true
+  pdf_document: default
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo=TRUE,error=TRUE)
+library(sdam)
+load(file="PATH/edhatt.rda")
+load(file="PATH/edh_ppd.rda")
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Package `sdam`
+First unistall `sdam` from local machine, and then install package v.0.3.7 from GitHub repo.
+
+```{r sdam, echo=TRUE, eval=FALSE}
+# remove sdam
+remove.packages("sdam", lib="C:/Users/AUID/R/win-library/version/")
+# install from GH
+require("devtools")
+devtools::install_github("mplex/cedhar", subdir="pkg/sdam")
+```
+
+<div style="margin-bottom:30px;"> </div>
+
+Load and check version
+
+```{r}
+library(sdam)
+packageVersion("sdam")
+```
+
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### EDH dataset from Vojtech shared folder
+
+
+```{r edhs, size="tiny", echo=TRUE, eval=FALSE}
+# request JSON file from SDDK
+edhs = SDDK("EDH_attrs_cleaned_2020-09-30.json", path="/sharingin/648597@au.dk/SDAM_root/SDAM_data/EDH/public", method="GET")
+# then SAVE json file on local machine (CHANGE PATHs)
+write(edhs, file="PATH/edhs.json")
+# transform json file from local machine into list object
+edhatt <- get.edhw(file="PATH/edhs.json")
+```
+
+### EDH variables
+Variables of interest are people's age, gender, along with province labels and dates.
+
+```{r edhvars}
+# EDH variables: people (age gender & name) province dates
+sel <-c("name", "age: years", "gender")
+vars <- c("people", "province_label", "type_of_inscription", "not_after", "not_before")
+```
+
+<div style="margin-bottom:30px;"> </div>
+
+Then "select" variables from `edhatt`, which is a list object of the `edhs.json` file. 
+
+```{r, echo=TRUE, eval=FALSE}
+# data frame with selected variables in Vojtech shared folder dataset
+edh_ppd <- edhw(x=edhatt, select=sel, vars=vars, as="df")
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Different flavours for selecting variables in data frames
+
+```{r, echo=TRUE, eval=FALSE}
+# sdam
+sdam::edhw(x=edh_ppd, province="Ach", gender="female")
+# dplyr
+require("dplyr")
+dplyr::filter(edh_ppd, province_label=="Achaia" & gender=="female")
+# sqldf
+require("sqldf")
+sqldf::sqldf('SELECT *
+             FROM edh_ppd 
+             WHERE province_label="Achaia" AND gender="female"')
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Aoristic sums Females per Roman province per century
+
+```{r, aors, warning=FALSE}
+# Roman provinces
+data("rp")
+require("dplyr")
+edh_femp <- list()
+for(i in names(rp)) {
+tmp <- prex(edhw(x=dplyr::filter(edh_ppd, province_label==rp[[i]] & gender=="female")), taq="not_before", tpq="not_after", bins=100)
+## with 'sdam'
+#tmp <- prex(edhw(x=edh_ppd, province=i, gender="female"), taq="not_before", tpq="not_after", bins=100)
+if(isTRUE(length(edh_femp)==0L)==TRUE) {
+	edh_femp <- tmp
+} else {
+	ifelse(is.list(edh_femp)==FALSE, edh_femp<-list(edh_femp, tmp), edh_femp<-c(edh_femp, list(tmp)))
+}
+}
+names(edh_femp) <- rp
+```
+
+<div style="margin-bottom:30px;"> </div>
+
+Object `edh_femp` is a list of data frames with the probabilities of existence for females per Roman 
+province per century in the EDH dataset from Vojtech shared folder. 
+
+
+```{r, edh_femp, comment="#"}
+# look at first entries
+head(edh_femp)
+```
+
+<div style="margin-bottom:60px;"> </div>
+
+
+### Bar plots for results
+
+```{r, barplot}
+# plot probability of existence in first entry: "Ach" Achaia
+barplot(edh_femp[[1]], main=paste(names(edh_femp)[1]," -  females","per century", sep=" "))
+```
+
+<div style="margin-bottom:30px;"> </div>
+Or else all provinces as pdf file that is located in `PATH`.
+
+
+```{r, echo=TRUE, eval=FALSE}
+pdf("PATH/FILENAME.pdf")
+for(i in seq_len(length(edh_femp))) {
+# do not plot if NULL
+if(is.null(edh_femp[[i]])==FALSE) {
+barplot(edh_femp[[i]], main=paste(names(edh_femp)[i]," -  females","per century", sep=" "))
+} else { NA }
+}
+dev.off()
+```
+
+
+<div style="margin-bottom:60px;"> </div>
+
+
