@@ -5,5 +5,7 @@ Random R excercises, some referring to Networks Analysis, but also other R topic
 
 * NA-InscriptionTypes.R - Adela's variation on the original exploring the lists in more detail
 
-* HTML folder - HTML and Rmarkdown source files for R list objects (Antonio)
+* HTML and Rmd folder - HTML and Rmarkdown source files for R list objects
+
+* data - folder for data
 
