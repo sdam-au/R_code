@@ -1,0 +1,286 @@
+objectid,label,XCOORD,YCOORD,PLPATH,rank,popest
+50327,Roma,41.892,12.486,/places/423025/roma,100,1000000.0
+50294,Patavium,45.41,11.877,/places/393473/patavium,90,30000.0
+50330,Rutupiae,51.294,1.332,/places/79664/rutupiae,70,7000.0
+50008,Aelana,29.664,34.974,/places/746700/aelana,80,10000.0
+50326,Regium,38.109,15.644,/places/452416/rhegion,80,8000.0
+50329,Rusicade,36.883,6.906,/places/305137/rusicade,80,10000.0
+50289,Palantia,42.475,-5.297,/places/236590/palantia,60,8000.0
+50039,Archelais,38.402,33.95,/places/619164/col-claudia-archelais,80,10000.0
+50030,Apulum,46.077,23.58,/places/206927/apulum,90,8000.0
+50035,Aquincum,47.564,19.05,/places/197130/aquincum,90,10000.0
+50331,Sabratha,32.806,12.485,/places/344282/sabratha,90,10000.0
+50356,Singidunum,44.802,20.466,/places/207443/singidunum,90,5000.0
+50359,Sirmium,44.966,19.61,/places/207447/sirmium,90,9000.0
+50041,Argentorate,48.583,7.744,/places/108754/argentorate,80,8000.0
+50360,Sisapo,38.645,-4.518,/places/266043/sisapo,70,8000.0
+50286,Ostia/Portus,41.755,12.288,/places/422995/ostia,90,40000.0
+50194,Hermopolis Magna,27.778,30.804,/places/756574/hermopolis-magna,90,37100.0
+50361,Siscia,45.483,16.371,/places/197504/siscia,90,6000.0
+50373,Syene,24.096,32.905,/places/786123/syene,80,27750.0
+50395,Ticinum,45.186,9.157,/places/383798/ticinum,70,15000.0
+50372,Summus Pyreneus (East),42.758,-0.828,/places/246672/summus-pyreneus,60,8000.0
+50435,Aginnum,0.0,0.0,,80,8000.0
+50409,Venonis,52.494,-1.301,/places/79732/venonis,60,7000.0
+50012,Ara Agrippinensium,50.941,6.96,/places/108751/col-claudia-ara-agrippinensium,90,20000.0
+50163,Emerita Augusta,38.916,-6.346,/places/256155/emerita-augusta,90,8000.0
+50254,Memphis,30.004,31.276,/places/736963/memphis,90,125000.0
+50082,Bracara Augusta,41.552,-8.423,/places/236377/bracara-augusta,90,8000.0
+50074,Eleutheropolis,31.621,34.888,/places/687854/beth-govrin,90,10000.0
+50160,Eburacum,53.958,-1.082,/places/89175/eburacum,90,7000.0
+50159,Dyrrhachium,41.316,19.45,/places/481818/dyrrhachium,90,8000.0
+50179,Gades,36.53,-6.292,/places/256177/gades,90,8000.0
+50181,Gaza,31.511,34.458,/places/687902/gaza,90,10000.0
+50414,Verona,45.439,10.994,/places/383816/verona,90,15000.0
+50188,Hadrumetum,35.826,10.639,/places/324716/hadrumetum,90,31000.0
+50198,Hippo Regius,36.884,7.755,/places/305090/hippo-regius,90,10000.0
+50199,Hispalis,37.383,-5.996,/places/256210/hispalis,90,8000.0
+50010,Aesernia,41.594,14.231,/places/432652/aesernia,80,15000.0
+50391,Thuburnica,36.529,8.455,/places/315221/thuburnica,80,10000.0
+50252,Mediolanum (Aquitania),45.5,-0.5,/places/138458/mediolanum,80,8000.0
+50393,Tibur,41.964,12.798,/places/423081/tibur,80,15000.0
+50201,Iader,44.115,15.229,/places/197312/iader,80,30000.0
+50283,Olisipo,38.707,-9.136,/places/256338/olisipo,80,8000.0
+50287,Ovilava,48.157,14.025,/places/118901/ovilava,80,15000.0
+50288,Oxyrhynchus,28.673,30.626,/places/736983/oxyrhynchus,80,30000.0
+50369,Sufetula,35.239,9.121,/places/324816/sufetula,80,10000.0
+50413,Vercellae,45.321,8.426,/places/383815/vercellae,80,15000.0
+50416,Vesontio,47.241,6.025,/places/177657/vesontio,80,8000.0
+50419,Viminacium,44.716,21.167,/places/207549/viminacium,80,12500.0
+50420,Vindobona,48.211,16.374,/places/128537/vindobona,80,15000.0
+50425,Volsinii,42.645,11.986,/places/413389/volsinii,80,15000.0
+50426,Volubilis,34.084,-5.506,/places/275740/volubilis,80,10000.0
+50053,Augusta Raurica,47.533,7.722,/places/177494/col-augusta-raurica,80,8000.0
+50085,Brigetio,47.735,18.17,/places/197180/brigetio,80,6000.0
+50111,Castulo,38.038,-3.624,/places/265855/castulo,80,8000.0
+50123,Clysma,29.959,32.568,/places/727101/clysma,80,45000.0
+50125,Ulpia Traiana Tricensimae,51.669,6.446,/places/108896/tricensimae,80,10000.0
+50153,Dorylaion,39.775,30.517,/places/609367/dorylaion,80,10000.0
+50157,Durocortorum,49.254,4.033,/places/108945/durocortorum,80,5000.0
+50158,Durostorum,44.117,27.261,/places/216800/durostorum,80,8000.0
+50166,Emona,46.051,14.506,/places/197258/emona,80,6000.0
+50170,Epiphaneia,35.14,36.74,/places/658556/epiphaneia,80,10000.0
+50195,Hibis,25.438,30.553,/places/776181/hibis,80,22200.0
+50203,Ilerda,41.614,0.626,/places/246431/ilerda,80,8000.0
+50244,Lykopolis,27.184,31.187,/places/756593/lykopolis,80,14000.0
+50259,Mursa,45.56,18.676,/places/197389/mursa,80,9000.0
+50260,Musti,36.336,9.143,/places/315085/musti,80,10000.0
+50261,Mutina,44.647,10.925,/places/383715/mutina,80,15000.0
+50265,Narnia,42.52,12.516,/places/413225/narnia,80,15000.0
+50274,Nicopolis (Pontus),40.161,38.139,/places/857248/nicopolis,80,10000.0
+50321,Ptolemais Hermiou,26.478,31.804,/places/756635/ptolemais-hermiou,80,125000.0
+50406,Valentia,44.93,4.89,/places/167718/col-valentia,80,5000.0
+50145,Dertosa,40.811,0.521,/places/246369/dertosa,80,8000.0
+50151,Doclea,42.5,18.5,/places/481808/doclea,80,5000.0
+50162,Eleusis,38.046,23.544,/places/579920/eleusis,80,10000.0
+50167,Emporiae,42.132,3.109,/places/246382/emporiae,80,8000.0
+50175,Formiae,41.256,13.606,/places/432839/formiae,80,15000.0
+50200,Histria,44.645,28.769,/places/216839/histria,80,8000.0
+50399,Tomis,44.173,28.638,/places/217016/tomis,80,8000.0
+50384,Thagaste,36.284,7.955,/places/315198/thagaste,80,10000.0
+50385,Thamugadi,35.485,6.468,/places/334636/thamugadi,80,10000.0
+50387,Thelepte,34.979,8.595,/places/324828/thelepte,80,10000.0
+50390,Theveste,35.407,8.121,/places/324831/theveste,80,10000.0
+50017,Alexandria,31.201,29.91,/places/727070/alexandria,100,500000.0
+50034,Aquileia,45.768,13.365,/places/187290/aquileia,90,12000.0
+50046,Ascalon,31.67,34.546,/places/687839/ascalon,90,10000.0
+50014,Ake-Ptolemais,32.922,35.077,/places/678010/ake,80,10000.0
+50020,Altinum,45.579,12.373,/places/393374/altinum,80,15000.0
+50049,Aternum,42.465,14.214,/places/413039/aternum,80,15000.0
+50112,Catabathmus Maior,31.563,25.16,/places/716540/catabathmus-maior,80,14000.0
+50019,Alexandria Troas,39.761,26.153,/places/550434/alexandria-troas,80,41700.0
+50011,Aesuris,37.218,-7.445,/places/256008/aesuris,70,8000.0
+50065,Barcino,41.388,2.17,/places/246343/col-barcino,90,8000.0
+50097,Calagurris,42.304,-1.965,/places/246279/calagurris-nassica-iulia,80,8000.0
+50023,Ancyra,39.972,32.801,/places/619103/ancyra,90,10000.0
+50025,Caesarea (Phrygia),38.304,31.19,/places/609307/antiochia,90,6300.0
+50027,Apamea (Pisidia),38.069,30.17,/places/638751/kelainai,90,10000.0
+50028,Aphroditopolis,29.408,31.252,/places/736889/aphroditopolis,80,14000.0
+50048,Asturica,42.459,-6.064,/places/236352/asturica,90,8000.0
+50080,Bostra,32.518,36.484,/places/678073/bostra,90,10000.0
+50072,Beroia,36.203,37.149,/places/658409/beroia,80,10000.0
+50075,Bilbilis,41.382,-1.603,/places/246247/bilbilis,80,8000.0
+50093,Caesaraugusta,41.675,-0.889,/places/246344/col-caesaraugusta,90,8000.0
+50095,Caesarea (Cappadocia),38.722,35.328,/places/629034/mazaka,90,10000.0
+50131,Corduba,37.885,-4.779,/places/256128/corduba,100,8000.0
+50120,Cirta,36.368,6.614,/places/305064/cirta,90,30000.0
+50124,Augusta Treverorum,49.754,6.646,/places/108894/col-augusta-treverorum,90,10000.0
+50105,Carnuntum,48.113,16.868,/places/128376/carnuntum,80,12000.0
+50149,Dierna,44.725,22.396,/places/207078/dierna,80,5000.0
+50140,Damascus,33.512,36.309,/places/678106/damascus,90,23000.0
+50218,Klaudianon,26.799,33.486,/places/766375/klaudianon,80,14000.0
+50213,Jerusalem,31.777,35.234,/places/687928/ierusalem,100,22000.0
+50222,Lambaesis,35.492,6.256,/places/334570/lambaesis,90,10000.0
+50189,Heliopolis,30.132,31.285,/places/727117/heliopolis,80,14000.0
+50192,Herakleopolis,29.086,30.938,/places/736920/herakleopolis,80,28000.0
+50251,Mediolanum,45.464,9.188,/places/383706/mediolanum,100,30000.0
+50263,Naissus,43.316,21.894,/places/207303/naissus,90,5000.0
+50242,Lutetia,48.856,2.342,/places/109126/lutetia,70,8000.0
+50248,Mariana,38.547,-2.927,/places/265965/mariana,70,8000.0
+50231,Limonum,46.587,0.343,/places/138422/limonum,80,8000.0
+50295,Pax Iulia,38.016,-7.865,/places/256358/pax-iulia,90,8000.0
+50279,Ocriculum,42.412,12.467,/places/413231/ocriculum,80,15000.0
+50313,Pompelo,42.818,-1.644,/places/246567/pompelo,70,8000.0
+50302,Petra,30.326,35.468,/places/697725/petra,90,10000.0
+50306,Philippopolis,42.144,24.75,/places/216927/philippopolis,90,8000.0
+50309,Placentia,45.052,9.699,/places/383741/placentia,90,15000.0
+50310,Poetovio,46.42,15.87,/places/197446/poetovio,80,6000.0
+50316,Porolissum,47.23,23.127,/places/207361/porolissum,80,8000.0
+50340,Sardis,38.488,28.04,/places/550867/sardis,90,53400.0
+50343,Savaria,47.235,16.622,/places/197498/savaria,80,10000.0
+50339,Santicum,46.616,13.849,/places/187537/santicum,70,15000.0
+50206,Iol Caesarea,36.607,2.197,/places/295279/iol-caesarea,90,63000.0
+50223,Lampsacus,40.347,26.699,/places/501570/lampsacus,80,9500.0
+50312,Pompeii,40.749,14.485,/places/433032/pompeii,80,15000.0
+50303,Petuaria,53.688,-0.591,/places/79639/petuaria,70,7000.0
+50430,Heraclea Pontica,41.283,31.419,/places/844944/heraclea,90,11700.0
+50405,Tyrus,33.272,35.198,/places/678437/tyrus,90,10000.0
+50401,Trapezus,41.003,39.718,/places/857359/trapezus,80,10000.0
+50417,Vibo Valentia,38.676,16.098,/places/452337/vibo-valentia,80,15000.0
+50347,Sebasteia,39.75,37.015,/places/629075/sebasteia,90,10000.0
+50346,Scythopolis,32.61,35.477,/places/678378/scythopolis,90,10000.0
+50352,Sicca Veneria,36.179,8.71,/places/315152/sicca-veneria,80,10000.0
+50117,Chalcedon,40.983,29.026,/places/520988/chalcedon,80,12000.0
+50024,Antiochia,36.202,36.158,/places/658381/antiochia,100,250000.0
+50107,Carthago,36.847,10.313,/places/314921/carthago,100,300000.0
+50429,Lugdunum,45.759,4.819,/places/167717/col-copia-claudia-augusta-lugdunum,100,25000.0
+50026,Apamea,35.557,36.401,/places/668335/apamea,90,30000.0
+50073,Berytus,33.899,35.521,/places/678060/berytus,90,50000.0
+50108,Carthago Nova,37.606,-0.991,/places/265849/carthago-nova,90,8000.0
+50431,Laodicea ad Lycum,37.855,29.136,/places/638955/laodicea-ad-lycum,90,13350.0
+50032,Aquae Sulis,51.381,-2.357,/places/79299/aquae-sulis,70,7000.0
+50121,Civitas Namnetum,47.215,-1.557,/places/138298/civitas-namnetum,70,8000.0
+50169,Ephesus,37.94,27.341,/places/599612/ephesus,100,33600.0
+50087,Bulla Regia,36.556,8.751,/places/314912/bulla-regia,80,10000.0
+50193,Herdoniae,41.317,15.628,/places/442613/herdoniae,70,15000.0
+50177,Fregellanum,41.546,13.513,/places/432847/fregellanum,60,15000.0
+50090,Burrio,51.704,-2.903,/places/79360/burrio,80,7000.0
+50128,Conimbriga,40.194,-8.408,/places/236443/conimbriga,80,8000.0
+50135,Cuicul,36.315,5.738,/places/305068/cuicul,80,10000.0
+50227,Larissa,39.633,22.424,/places/540905/larissa,90,10000.0
+50241,Luna,44.066,10.031,/places/403235/luna,90,15000.0
+50243,Lydda,31.966,34.892,/places/687953/lydda,90,10000.0
+50247,Marcianopolis,43.225,27.585,/places/216878/marcianopolis,90,8000.0
+50255,Minturnae,41.242,13.769,/places/432940/minturnae,90,15000.0
+50268,Neapolis,40.84,14.253,/places/433014/neapolis,90,30000.0
+50271,Nicaea,40.43,29.714,/places/511268/nicaea,90,23850.0
+50297,Pelusium,31.05,32.6,/places/727192/pelusium,90,14000.0
+50240,Luguvalium,54.895,-2.934,/places/89234/luguvalium,80,7000.0
+50250,Massilia,43.297,5.382,/places/148127/massalia,80,15000.0
+50267,Naucratis,30.901,30.592,/places/727169/naucratis,80,5920.0
+50269,Nemausus,43.835,4.36,/places/148142/nemausus,80,12000.0
+50272,Nicomedia,40.766,29.916,/places/511337/nicomedia,90,10000.0
+50291,Paraetonium,31.35,27.237,/places/716615/paraetonium,80,14000.0
+50230,Lepcis Magna,32.637,14.292,/places/344448/lepcis-magna,100,90000.0
+50336,Salona,43.54,16.483,/places/197488/salona,90,25000.0
+50353,Side,36.776,31.398,/places/639105/side,90,5850.0
+50362,Sitifis,36.237,5.41,/places/305153/sitifis,90,10000.0
+50363,Smyrna,38.25,27.25,/places/550893/smyrna,90,10000.0
+50380,Tarsus,36.916,34.901,/places/648789/tarsus,90,10000.0
+50389,Thessalonica,40.626,22.956,/places/491741/thessalonica,90,30000.0
+50396,Tingi,35.788,-5.81,/places/275736/tingi,90,10000.0
+50305,Philippi,41.014,24.283,/places/501482/philippi,80,10000.0
+50383,Tergeste,45.649,13.772,/places/187578/tergeste,80,15000.0
+50386,Thebae,38.322,23.319,/places/541138/thebae,80,10000.0
+50138,Cyrene,32.823,21.857,/places/373778/cyrene,90,25000.0
+50300,Pergamum,39.131,27.185,/places/550812/pergamum,90,32850.0
+50050,Athenae,38.032,23.655,/places/579885/athenae,90,90000.0
+50282,Oescus,43.698,24.482,/places/216907/oescus,80,8000.0
+50088,Burdigala,44.837,-0.577,/places/138248/burdigala,90,15000.0
+50109,Casinum,41.493,13.831,/places/432764/casinum,90,15000.0
+50104,Capua,41.086,14.25,/places/432754/capua,90,30000.0
+50281,Oea,32.898,13.175,/places/344456/oea,90,10000.0
+50320,Ptolemais,32.708,20.951,/places/373879/ptolemais,90,30000.0
+50245,Magnesia,37.853,27.533,/places/599778/magnesia-ad-maeandrum,80,10000.0
+50477,Tarragona,411.146,125.862,,6,8000.0
+50711,Contra Apollonos,0.0,0.0,,6,14000.0
+50475,Denia,388.444,0.111111,,6,8000.0
+50478,Narbonne,431.836,30.041,,6,20000.0
+50744,Toletum,0.0,0.0,,80,8000.0
+50037,Arausio,44.138,4.81,http://en.wikipedia.org/wiki/Arausio,80,10000.0
+50452,Paphos,0.0,0.0,,90,15000.0
+50613,Rhodos,36.44,28.23,,80,40000.0
+50619,Prusias,404.325,291.564,,80,10000.0
+50553,Petras Mikros,32.17,23.45,,70,14000.0
+50568,Petras Megas,31.75,25.09,,70,14000.0
+50466,Lamia,0.0,0.0,,80,10000.0
+50418,Vienna,45.525,4.879,classical,90,8000.0
+50453,Salamis,0.0,0.0,,90,20000.0
+50455,Syracusae,0.0,0.0,,90,90000.0
+50507,Selinus,375.828,128.251,,90,8000.0
+50257,Mogontiacum,50.0,8.271,http://en.wikipedia.org/wiki/Mainz,90,15000.0
+50437,Perge,0.0,0.0,,90,10000.0
+50719,Tripolis,0.0,0.0,,90,10000.0
+50394,Tubusuctu,36.669,4.828,,80,10000.0
+50284,Omboi,24.467,32.95,http://en.wikipedia.org/wiki/Kom_Ombo,80,14000.0
+50436,Cibyra,0.0,0.0,,80,10000.0
+50451,Olbia,0.0,0.0,,80,6000.0
+50438,Phaselis,0.0,0.0,,80,10000.0
+50440,Patara,0.0,0.0,,80,10000.0
+50472,Ulpiana,0.0,0.0,,80,5000.0
+50486,Caralis,392.149,910.952,,80,6000.0
+50467,Naupactus,0.0,0.0,,80,10000.0
+50491,Thaenae,34.67,10.7,,80,10000.0
+50505,Lilybaeum,377.984,124.375,,80,8000.0
+50512,Melita,35.88,14.4,,80,8000.0
+50484,Thrabraca,369.574,875.101,,6,10000.0
+50463,Iuliobriga,0.0,0.0,,80,8000.0
+50564,Thasos,40.78,24.71,,80,8000.0
+50597,Samos,37.69,26.94,,80,10000.0
+50186,Glevum,51.875,-2.264,,80,7000.0
+50682,Ammon,0.0,0.0,,80,14000.0
+50661,Krokodilopolis,0.0,0.0,,80,14000.0
+50674,Latopolis,0.0,0.0,,80,18500.0
+50690,Oasis Parva,0.0,0.0,,80,14000.0
+50432,Boubastis,0.0,0.0,,70,25900.0
+50442,Amaseia,0.0,0.0,,80,10000.0
+50021,Ammaedara,35.567,8.467,http://en.wikipedia.org/wiki/Ha%C3%AFdra,80,10000.0
+50447,Attalea,0.0,0.0,,80,10000.0
+50492,Meninge,33.68,10.92,,80,10000.0
+50502,Atria,45.05,12.07,,70,15000.0
+50498,Caput Vada,35.23,11.16,,60,10000.0
+50513,Camarina,36.85,14.45,,80,8000.0
+50527,Kallipolis-Anxa,40.06,17.99,,70,15000.0
+50542,Alpheos (river),37.61,21.45,,60,10000.0
+50150,Thebai,25.702,32.652,,80,14000.0
+50529,Sallentinum Pr.,39.8,18.36,,60,15000.0
+50549,Corinthus,37.91,22.88,,100,80000.0
+50555,Chalcis,38.46,23.59,,90,10000.0
+50190,Heliopolis (Baalbek),34.015,36.203,,90,10000.0
+50562,Geraistos,37.98,24.55,,70,10000.0
+50548,Gythion,36.76,22.57,,80,10000.0
+50569,Hephaistia,39.92,25.14,,70,10000.0
+50567,Kardamis,31.92,25.04,,70,14000.0
+50544,Patrae,38.26,21.74,,90,8000.0
+50479,Arles,436.776,46.308,,6,10000.0
+50229,Legio VII,42.606,-5.57,,70,8000.0
+50718,Amphipolis,0.0,0.0,,90,8000.0
+50612,Cyzicus,403.813,278.923,,90,25200.0
+50614,Caunus,36.83,28.63,,80,10000.0
+50610,Bargylia,37.19,27.59,,80,5100.0
+50604,Kos,36.89,27.29,,70,10000.0
+50606,Cnidus,36.69,27.37,,80,13950.0
+50603,Myndos,37.08,27.24,,70,10000.0
+50631,Corycus,36.46,34.15,,80,10000.0
+50608,Halicarnassus,37.04,27.43,,80,26100.0
+50647,Themiskyra,412.152,369.677,,70,10000.0
+50639,Sinope,420.492,350.419,,90,10000.0
+50637,Apollonia,322.128,34.816,,80,10000.0
+50713,Malaca,0.0,0.0,,80,8000.0
+50412,Venta,51.063,-1.317,http://en.wikipedia.org/wiki/Venta_Belgarum,80,7000.0
+50464,Portus Blendium,0.0,0.0,,70,8000.0
+50657,Strato's Tower,348.918,325.025,,6,75000.0
+50714,Panormus,0.0,0.0,,90,8000.0
+50716,Aleria,0.0,0.0,,80,6000.0
+50654,Raphia,342.519,312.886,,80,10000.0
+50715,Agrigentum,0.0,0.0,,80,50000.0
+50658,Azotus Paralios,34.65,31.8,,80,10000.0
+50249,Mamucio,53.481,-2.342,,70,7000.0
+50593,Astypaleia,36.55,26.35,,60,10000.0
+50538,Euesperides,32.12,20.08,,80,10000.0
+50574,Ios,36.72,25.28,,60,10000.0
+50584,Imbros,40.16,25.83,,70,10000.0
+50130,Coptos,25.977,32.798,/places/786010/coptos,100,14000.0
+50791,Miletus,272.756.764,375.312.131,http://pleiades.stoa.org/places/599799/,70,14550.0
+51176,Isca,0.0,0.0,,5,7000.0
+51173,Moridunum,0.0,0.0,,5,7000.0
